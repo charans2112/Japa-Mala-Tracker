@@ -47,7 +47,7 @@ function removeMantra() {
         saveData();
         loadMantras();
         updateStats();
-        updateDailyLog();
+        hideDailyLog(); // Hide the daily log after removal
     }
 }
 
@@ -75,7 +75,7 @@ function addJapaMalas() {
 
     // Update stats and logs
     updateStats();
-    updateDailyLog();
+    hideDailyLog(); // Hide the daily log after addition
 }
 
 // Update the statistics (total Japa Malas today and lifetime)
@@ -107,6 +107,19 @@ function updateStats() {
         stat.textContent = `${mantra}: ${mantraData[mantra].lifetime} Japa Malas (Lifetime)`;
         statsContainer.appendChild(stat);
     }
+}
+
+// Show daily log on button click
+function showDailyLog() {
+    const logSection = document.getElementById('log-section');
+    logSection.classList.remove('hidden'); // Show the log section
+    updateDailyLog(); // Update the log based on the selected date
+}
+
+// Hide the daily log
+function hideDailyLog() {
+    const logSection = document.getElementById('log-section');
+    logSection.classList.add('hidden'); // Hide the log section
 }
 
 // Update the daily Japa Mala log in table format
@@ -144,4 +157,4 @@ function updateDailyLog() {
 // Initial load
 loadMantras();
 updateStats();
-updateDailyLog();
+hideDailyLog(); // Initially hide the daily log
