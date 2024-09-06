@@ -1,147 +1,117 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: url('https://images.unsplash.com/photo-1513441592902-e66d53b5d23d') no-repeat center center fixed;
-    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: orange; /* Set background color to orange */
     color: #333;
+    text-align: center; /* Center-align all text */
     margin: 0;
     padding: 0;
-    position: relative;
 }
 
 .header {
-    background: rgba(255, 165, 0, 0.8); /* Orange color with transparency */
+    background-color: #FFA500; /* Slightly different shade of orange */
     color: white;
-    text-align: center;
     padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px;
     width: 80%;
-    margin: 80px auto 20px auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-/* Section Styling */
-.section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #ff5722; /* Vibrant orange color */
-}
-
-/* Input Groups */
-.input-group {
-    margin-bottom: 10px;
-}
-
-.input-group input {
-    width: calc(100% - 120px);
-}
-
-.input-group button {
-    width: 100px;
-    margin-left: 10px;
-}
-
-/* Inputs, Selects, and Buttons */
-input, select, button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input, select {
-    border: 2px solid #ff5722; /* Border color to match theme */
-}
-
-button {
-    background-color: #ff5722; /* Orange color */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background-color: #e64a19; /* Darker orange */
-    transform: translateY(-3px); /* Lift the button */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
-}
-
-button:active {
-    transform: scale(0.98); /* Slightly shrink the button when pressed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on press */
-}
-
-/* Stats Section */
-.stats {
-    background-color: #f5f5f5;
-    border-radius: 10px;
+    margin: 0 auto;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for content */
+    border-radius: 8px;
+}
+
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for sections */
+}
+
+.input-group {
     margin-bottom: 20px;
 }
 
-/* Mantra Logs Section */
-#mantra-stats-container {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-#mantra-stats-container p {
-    padding: 5px;
-    background-color: #fafafa;
-    margin-bottom: 5px;
+input[type="text"], 
+input[type="number"], 
+input[type="date"], 
+select {
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    width: calc(100% - 22px); /* Adjust width to fit within container */
+    max-width: 300px; /* Limit the width */
 }
 
-/* Table Styling */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.btn.add {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn.remove {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn.show-log {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    background-color: white;
-    border-radius: 5px;
-    overflow: hidden;
+    margin: 20px auto;
 }
 
 table, th, td {
     border: 1px solid #ddd;
-    padding: 10px;
+}
+
+th, td {
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #ff5722; /* Orange color for header */
+    background-color: #FFA500;
     color: white;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Hidden section */
 .hidden {
     display: none;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hidden {
+    animation: fadeIn 0.5s ease-in;
+}
+
