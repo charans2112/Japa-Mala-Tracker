@@ -21,7 +21,7 @@ h1, h3 {
     text-align: center;
 }
 
-.mantra-management, .japa-malas, .stats {
+.mantra-management, .japa-malas, .stats, .daily-log {
     margin-top: 20px;
     text-align: center;
 }
@@ -47,4 +47,8 @@ button:hover {
 .calendar {
     text-align: center;
     margin: 20px 0;
+}
+
+#log-container {
+    margin-top: 20px;
 }
