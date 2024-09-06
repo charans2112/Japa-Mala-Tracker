@@ -59,6 +59,15 @@ button:hover {
     background-color: #e53935;
 }
 
+.btn.show-log {
+    background-color: #2196F3;
+    margin-top: 10px;
+}
+
+.btn.show-log:hover {
+    background-color: #1976D2;
+}
+
 /* Stats Section */
 .stats {
     background-color: #f0f0f0;
@@ -114,4 +123,9 @@ tbody tr:nth-child(odd) {
 
 tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Hidden section */
+.hidden {
+    display: none;
 }
