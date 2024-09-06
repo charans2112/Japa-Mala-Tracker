@@ -15,9 +15,14 @@
         <!-- Mantra Management Section -->
         <div class="section mantra-management">
             <h2>Manage Mantras</h2>
-            <input type="text" id="mantra-input" placeholder="Enter new mantra">
-            <button class="btn add" onclick="addMantra()">Add Mantra</button>
-            <button class="btn remove" onclick="removeMantra()">Remove Mantra</button>
+            <div class="input-group">
+                <input type="text" id="add-mantra-input" placeholder="Enter new mantra">
+                <button class="btn add" onclick="addMantra()">Add Mantra</button>
+            </div>
+            <div class="input-group">
+                <input type="text" id="remove-mantra-input" placeholder="Enter mantra to remove">
+                <button class="btn remove" onclick="removeMantra()">Remove Mantra</button>
+            </div>
         </div>
 
         <!-- Calendar Section -->
