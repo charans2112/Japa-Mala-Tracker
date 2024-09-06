@@ -47,6 +47,7 @@ function removeMantra() {
         saveData();
         loadMantras();
         updateStats();
+        updateDailyLog();
     }
 }
 
@@ -72,7 +73,7 @@ function addJapaMalas() {
     // Save to localStorage
     saveData();
 
-    // Update stats and log
+    // Update stats and logs
     updateStats();
     updateDailyLog();
 }
@@ -99,7 +100,7 @@ function updateStats() {
     document.getElementById('lifetime-malas').textContent = lifetimeMalas;
 
     // Update mantra-specific stats
-    const statsContainer = document.getElementById('mantra-stats');
+    const statsContainer = document.getElementById('mantra-stats-container');
     statsContainer.innerHTML = '';
     for (let mantra in mantraData) {
         let stat = document.createElement('p');
@@ -108,7 +109,7 @@ function updateStats() {
     }
 }
 
-// Update the daily Japa Mala log
+// Update the daily Japa Mala log in table format
 function updateDailyLog() {
     const date = document.getElementById('japa-date').value;
     const logContainer = document.getElementById('log-container');
@@ -116,12 +117,27 @@ function updateDailyLog() {
 
     if (japaData[date]) {
         for (let mantra in japaData[date]) {
-            let logEntry = document.createElement('p');
-            logEntry.textContent = `${mantra}: ${japaData[date][mantra]} Japa Malas on ${date}`;
-            logContainer.appendChild(logEntry);
+            let row = document.createElement('tr');
+            let mantraCell = document.createElement('td');
+            let malasCell = document.createElement('td');
+            let dateCell = document.createElement('td');
+
+            mantraCell.textContent = mantra;
+            malasCell.textContent = japaData[date][mantra];
+            dateCell.textContent = date;
+
+            row.appendChild(mantraCell);
+            row.appendChild(malasCell);
+            row.appendChild(dateCell);
+            logContainer.appendChild(row);
         }
     } else {
-        logContainer.textContent = 'No Japa Malas recorded for this day.';
+        let row = document.createElement('tr');
+        let noData = document.createElement('td');
+        noData.setAttribute('colspan', 3);
+        noData.textContent = 'No Japa Malas recorded for this day.';
+        row.appendChild(noData);
+        logContainer.appendChild(row);
     }
 }
 
