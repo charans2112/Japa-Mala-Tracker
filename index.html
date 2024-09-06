@@ -4,71 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japa Mala Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="number"], input[type="date"], input[type="submit"] {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 100%;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Japa Mala Tracker</h1>
 
-<div class="container">
-    <h1>Japa Mala Tracker</h1>
-    <form id="mala-form">
-        <label for="malas">Enter Number of Malas:</label>
-        <input type="number" id="malas" name="malas" required>
-        
-        <!-- Calendar input for date selection, defaults to today's date -->
-        <input type="date" id="date" name="date">
-        
-        <input type="submit" value="Add Malas">
-    </form>
-    
-    <h3>Total Malas in Lifetime: <span id="lifetime-total">0</span></h3>
-    
-    <h3>Daily Record</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Number of Malas</th>
-            </tr>
-        </thead>
-        <tbody id="daily-records">
-            <!-- Records will be populated here -->
-        </tbody>
-    </table>
-</div>
+        <!-- Mantra Management Section -->
+        <div class="mantra-management">
+            <input type="text" id="mantra-input" placeholder="Enter new mantra">
+            <button onclick="addMantra()">Add Mantra</button>
+            <button onclick="removeMantra()">Remove Mantra</button>
+        </div>
 
-<script src="app.js"></script>
+        <!-- Calendar Section -->
+        <div class="calendar">
+            <input type="date" id="japa-date" value="">
+        </div>
+
+        <!-- Add Japa Malas for a mantra -->
+        <div class="japa-malas">
+            <select id="mantra-select">
+                <option value="" disabled selected>Select Mantra</option>
+            </select>
+            <input type="number" id="malas-input" placeholder="Number of Japa Malas">
+            <button onclick="addJapaMalas()">Add Japa Malas</button>
+        </div>
+
+        <!-- Japa Mala Statistics -->
+        <div class="stats">
+            <h3>Total Japa Malas Today: <span id="today-malas">0</span></h3>
+            <h3>Total Japa Malas for Life: <span id="lifetime-malas">0</span></h3>
+        </div>
+
+        <!-- Mantra-wise Statistics -->
+        <div id="mantra-stats"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
