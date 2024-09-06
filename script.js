@@ -25,7 +25,7 @@ function loadMantras() {
 
 // Add a new mantra
 function addMantra() {
-    const mantraInput = document.getElementById('mantra-input');
+    const mantraInput = document.getElementById('add-mantra-input');
     const mantra = mantraInput.value.trim();
     if (mantra && !mantraData[mantra]) {
         mantraData[mantra] = { lifetime: 0 };
@@ -37,8 +37,8 @@ function addMantra() {
 
 // Remove selected mantra
 function removeMantra() {
-    const select = document.getElementById('mantra-select');
-    const mantra = select.value;
+    const mantraInput = document.getElementById('remove-mantra-input');
+    const mantra = mantraInput.value.trim();
     if (mantra) {
         delete mantraData[mantra];
         for (let date in japaData) {
@@ -49,36 +49,31 @@ function removeMantra() {
         updateStats();
         hideDailyLog(); // Hide the daily log after removal
     }
+    mantraInput.value = '';
 }
 
-// Add Japa Malas for the selected mantra
+// Add Japa Malas
 function addJapaMalas() {
     const date = document.getElementById('japa-date').value;
-    const malas = parseInt(document.getElementById('malas-input').value, 10);
     const mantra = document.getElementById('mantra-select').value;
+    const malas = parseInt(document.getElementById('malas-input').value, 10);
 
-    if (!mantra || isNaN(malas) || malas <= 0) {
-        alert('Please select a valid mantra and enter the number of Japa Malas.');
-        return;
+    if (mantra && malas && !isNaN(malas)) {
+        if (!japaData[date]) {
+            japaData[date] = {};
+        }
+        if (!japaData[date][mantra]) {
+            japaData[date][mantra] = 0;
+        }
+        japaData[date][mantra] += malas;
+        mantraData[mantra].lifetime = (mantraData[mantra].lifetime || 0) + malas;
+        saveData();
+        updateStats();
+        document.getElementById('malas-input').value = '';
     }
-
-    // Add to japa data for the date and mantra
-    if (!japaData[date]) japaData[date] = {};
-    if (!japaData[date][mantra]) japaData[date][mantra] = 0;
-    japaData[date][mantra] += malas;
-
-    // Add to mantra lifetime count
-    mantraData[mantra].lifetime += malas;
-
-    // Save to localStorage
-    saveData();
-
-    // Update stats and logs
-    updateStats();
-    hideDailyLog(); // Hide the daily log after addition
 }
 
-// Update the statistics (total Japa Malas today and lifetime)
+// Update statistics and mantra logs
 function updateStats() {
     const date = document.getElementById('japa-date').value;
     let todayMalas = 0;
