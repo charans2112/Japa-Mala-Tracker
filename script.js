@@ -11,15 +11,23 @@ function saveData() {
 // Initialize date picker to today's date
 document.getElementById('japa-date').value = new Date().toISOString().slice(0, 10);
 
-// Load Mantras in select dropdown
+// Load Mantras in select dropdowns
 function loadMantras() {
     const select = document.getElementById('mantra-select');
+    const removeDropdown = document.getElementById('remove-mantra-dropdown');
     select.innerHTML = '<option value="" disabled selected>Select Mantra</option>';
+    removeDropdown.innerHTML = '<option value="" disabled selected>Select mantra to remove</option>';
+    
     for (let mantra in mantraData) {
-        let option = document.createElement('option');
-        option.value = mantra;
-        option.text = mantra;
-        select.appendChild(option);
+        let addOption = document.createElement('option');
+        addOption.value = mantra;
+        addOption.text = mantra;
+        select.appendChild(addOption);
+
+        let removeOption = document.createElement('option');
+        removeOption.value = mantra;
+        removeOption.text = mantra;
+        removeDropdown.appendChild(removeOption);
     }
 }
 
@@ -37,8 +45,8 @@ function addMantra() {
 
 // Remove selected mantra
 function removeMantra() {
-    const mantraInput = document.getElementById('remove-mantra-input');
-    const mantra = mantraInput.value.trim();
+    const mantraDropdown = document.getElementById('remove-mantra-dropdown');
+    const mantra = mantraDropdown.value;
     if (mantra) {
         delete mantraData[mantra];
         for (let date in japaData) {
@@ -49,7 +57,6 @@ function removeMantra() {
         updateStats();
         hideDailyLog(); // Hide the daily log after removal
     }
-    mantraInput.value = '';
 }
 
 // Add Japa Malas
