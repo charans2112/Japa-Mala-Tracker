@@ -60,15 +60,19 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     background-color: #e64a19; /* Darker orange */
+    transform: translateY(-3px); /* Lift the button */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }
 
 button:active {
     transform: scale(0.98); /* Slightly shrink the button when pressed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on press */
 }
 
 /* Stats Section */
