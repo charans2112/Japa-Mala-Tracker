@@ -1,35 +1,46 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('https://images.unsplash.com/photo-1533578211912-55f57d999758') no-repeat center center fixed;
+    background: url('https://images.unsplash.com/photo-1513441592902-e66d53b5d23d') no-repeat center center fixed;
     background-size: cover;
     color: #333;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .header {
-    background-color: rgba(0, 128, 128, 0.8);
+    background: rgba(255, 165, 0, 0.8); /* Orange color with transparency */
     color: white;
     text-align: center;
     padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     padding: 20px;
     width: 80%;
-    margin: 20px auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 80px auto 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-/* Mantra Management and Japa Malas Sections */
-.mantra-management, .japa-malas, .calendar-section, .stats, .mantra-logs {
-    text-align: center;
+/* Section Styling */
+.section {
     margin-bottom: 20px;
 }
 
+h2 {
+    color: #ff5722; /* Vibrant orange color */
+}
+
+/* Inputs, Selects, and Buttons */
 input, select, button {
     padding: 10px;
     font-size: 16px;
@@ -40,44 +51,32 @@ input, select, button {
     border-radius: 5px;
 }
 
+input, select {
+    border: 2px solid #ff5722; /* Border color to match theme */
+}
+
 button {
-    background-color: #4CAF50;
+    background-color: #ff5722; /* Orange color */
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #e64a19; /* Darker orange */
 }
 
-.btn.remove {
-    background-color: #f44336;
-}
-
-.btn.remove:hover {
-    background-color: #e53935;
-}
-
-.btn.show-log {
-    background-color: #2196F3;
-    margin-top: 10px;
-}
-
-.btn.show-log:hover {
-    background-color: #1976D2;
+button:active {
+    transform: scale(0.98); /* Slightly shrink the button when pressed */
 }
 
 /* Stats Section */
 .stats {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-}
-
-h3 {
-    margin: 10px 0;
 }
 
 /* Mantra Logs Section */
@@ -87,13 +86,13 @@ h3 {
     padding: 15px;
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     text-align: left;
 }
 
 #mantra-stats-container p {
     padding: 5px;
-    background-color: #f4f4f4;
+    background-color: #fafafa;
     margin-bottom: 5px;
     border-radius: 5px;
 }
@@ -104,6 +103,8 @@ table {
     border-collapse: collapse;
     margin-top: 10px;
     background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 table, th, td {
@@ -113,7 +114,7 @@ table, th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #ff5722; /* Orange color for header */
     color: white;
 }
 
