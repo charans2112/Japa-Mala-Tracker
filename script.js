@@ -41,8 +41,12 @@ function removeMantra() {
     const mantra = select.value;
     if (mantra) {
         delete mantraData[mantra];
+        for (let date in japaData) {
+            delete japaData[date][mantra];
+        }
         saveData();
         loadMantras();
+        updateStats();
     }
 }
 
@@ -57,7 +61,7 @@ function addJapaMalas() {
         return;
     }
 
-    // Add to japa data
+    // Add to japa data for the date and mantra
     if (!japaData[date]) japaData[date] = {};
     if (!japaData[date][mantra]) japaData[date][mantra] = 0;
     japaData[date][mantra] += malas;
@@ -68,20 +72,25 @@ function addJapaMalas() {
     // Save to localStorage
     saveData();
 
-    // Update stats
+    // Update stats and log
     updateStats();
+    updateDailyLog();
 }
 
-// Update the statistics
+// Update the statistics (total Japa Malas today and lifetime)
 function updateStats() {
     const date = document.getElementById('japa-date').value;
     let todayMalas = 0;
     let lifetimeMalas = 0;
 
-    for (let mantra in japaData[date]) {
-        todayMalas += japaData[date][mantra];
+    // Calculate today's malas
+    if (japaData[date]) {
+        for (let mantra in japaData[date]) {
+            todayMalas += japaData[date][mantra];
+        }
     }
 
+    // Calculate lifetime malas
     for (let mantra in mantraData) {
         lifetimeMalas += mantraData[mantra].lifetime;
     }
@@ -99,6 +108,24 @@ function updateStats() {
     }
 }
 
+// Update the daily Japa Mala log
+function updateDailyLog() {
+    const date = document.getElementById('japa-date').value;
+    const logContainer = document.getElementById('log-container');
+    logContainer.innerHTML = '';
+
+    if (japaData[date]) {
+        for (let mantra in japaData[date]) {
+            let logEntry = document.createElement('p');
+            logEntry.textContent = `${mantra}: ${japaData[date][mantra]} Japa Malas on ${date}`;
+            logContainer.appendChild(logEntry);
+        }
+    } else {
+        logContainer.textContent = 'No Japa Malas recorded for this day.';
+    }
+}
+
 // Initial load
 loadMantras();
 updateStats();
+updateDailyLog();
