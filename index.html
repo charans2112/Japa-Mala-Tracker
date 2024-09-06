@@ -7,28 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="header">
         <h1>Japa Mala Tracker</h1>
-
+    </div>
+    
+    <div class="container">
         <!-- Mantra Management Section -->
         <div class="mantra-management">
             <input type="text" id="mantra-input" placeholder="Enter new mantra">
-            <button onclick="addMantra()">Add Mantra</button>
-            <button onclick="removeMantra()">Remove Mantra</button>
+            <button class="btn add" onclick="addMantra()">Add Mantra</button>
+            <button class="btn remove" onclick="removeMantra()">Remove Mantra</button>
         </div>
 
         <!-- Calendar Section -->
-        <div class="calendar">
-            <input type="date" id="japa-date" value="">
+        <div class="calendar-section">
+            <h3>Select Date</h3>
+            <input type="date" id="japa-date">
         </div>
 
-        <!-- Add Japa Malas for a mantra -->
+        <!-- Japa Malas Section -->
         <div class="japa-malas">
+            <h3>Add Japa Malas</h3>
             <select id="mantra-select">
                 <option value="" disabled selected>Select Mantra</option>
             </select>
             <input type="number" id="malas-input" placeholder="Number of Japa Malas">
-            <button onclick="addJapaMalas()">Add Japa Malas</button>
+            <button class="btn add" onclick="addJapaMalas()">Add Japa Malas</button>
         </div>
 
         <!-- Japa Mala Statistics -->
@@ -37,13 +41,25 @@
             <h3>Total Japa Malas for Life: <span id="lifetime-malas">0</span></h3>
         </div>
 
-        <!-- Mantra-wise Statistics -->
-        <div id="mantra-stats"></div>
-        
-        <!-- Daily Log Section -->
-        <div id="daily-log">
-            <h3>Daily Japa Log</h3>
-            <div id="log-container"></div>
+        <!-- Mantra Logs and Stats -->
+        <div class="mantra-logs">
+            <h3>Mantra-Wise Logs</h3>
+            <div id="mantra-stats-container"></div>
+        </div>
+
+        <!-- Daily Logs Section -->
+        <div class="daily-log">
+            <h3>Daily Log for Selected Date</h3>
+            <table id="log-table">
+                <thead>
+                    <tr>
+                        <th>Mantra</th>
+                        <th>Japa Malas</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="log-container"></tbody>
+            </table>
         </div>
     </div>
 
