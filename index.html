@@ -13,22 +13,23 @@
 
     <div class="container">
         <!-- Mantra Management Section -->
-        <div class="mantra-management">
+        <div class="section mantra-management">
+            <h2>Manage Mantras</h2>
             <input type="text" id="mantra-input" placeholder="Enter new mantra">
             <button class="btn add" onclick="addMantra()">Add Mantra</button>
             <button class="btn remove" onclick="removeMantra()">Remove Mantra</button>
         </div>
 
         <!-- Calendar Section -->
-        <div class="calendar-section">
-            <h3>Select Date</h3>
+        <div class="section calendar-section">
+            <h2>Select Date</h2>
             <input type="date" id="japa-date">
             <button class="btn show-log" onclick="showDailyLog()">Show Daily Log</button>
         </div>
 
         <!-- Japa Malas Section -->
-        <div class="japa-malas">
-            <h3>Add Japa Malas</h3>
+        <div class="section japa-malas">
+            <h2>Add Japa Malas</h2>
             <select id="mantra-select">
                 <option value="" disabled selected>Select Mantra</option>
             </select>
@@ -37,20 +38,21 @@
         </div>
 
         <!-- Japa Mala Statistics -->
-        <div class="stats">
+        <div class="section stats">
+            <h2>Statistics</h2>
             <h3>Total Japa Malas Today: <span id="today-malas">0</span></h3>
             <h3>Total Japa Malas for Life: <span id="lifetime-malas">0</span></h3>
         </div>
 
         <!-- Mantra Logs and Stats -->
-        <div class="mantra-logs">
-            <h3>Mantra-Wise Logs</h3>
+        <div class="section mantra-logs">
+            <h2>Mantra-Wise Logs</h2>
             <div id="mantra-stats-container"></div>
         </div>
 
         <!-- Daily Logs Section -->
-        <div id="log-section" class="daily-log hidden">
-            <h3>Daily Log for Selected Date</h3>
+        <div id="log-section" class="section daily-log hidden">
+            <h2>Daily Log for Selected Date</h2>
             <table id="log-table">
                 <thead>
                     <tr>
