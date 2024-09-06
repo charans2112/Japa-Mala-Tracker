@@ -1,36 +1,43 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: url('https://images.unsplash.com/photo-1533578211912-55f57d999758') no-repeat center center fixed;
+    background-size: cover;
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: rgba(0, 128, 128, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 .container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-h1, h3 {
+/* Mantra Management and Japa Malas Sections */
+.mantra-management, .japa-malas, .calendar-section, .stats, .mantra-logs {
     text-align: center;
-}
-
-.mantra-management, .japa-malas, .stats, .daily-log {
-    margin-top: 20px;
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 input, select, button {
-    margin: 10px;
     padding: 10px;
-    width: 80%;
     font-size: 16px;
+    margin: 5px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
@@ -44,11 +51,67 @@ button:hover {
     background-color: #45a049;
 }
 
-.calendar {
-    text-align: center;
-    margin: 20px 0;
+.btn.remove {
+    background-color: #f44336;
 }
 
-#log-container {
-    margin-top: 20px;
+.btn.remove:hover {
+    background-color: #e53935;
+}
+
+/* Stats Section */
+.stats {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+/* Mantra Logs Section */
+#mantra-stats-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+#mantra-stats-container p {
+    padding: 5px;
+    background-color: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
 }
