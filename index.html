@@ -12,7 +12,6 @@
     </div>
 
     <div class="container">
-        <!-- Mantra Management Section -->
         <div class="section mantra-management">
             <h2>Manage Mantras</h2>
             <div class="input-group">
@@ -27,14 +26,12 @@
             </div>
         </div>
 
-        <!-- Calendar Section -->
         <div class="section calendar-section">
             <h2>Select Date</h2>
             <input type="date" id="japa-date">
             <button class="btn show-log" onclick="showDailyLog()">Show Daily Log</button>
         </div>
 
-        <!-- Japa Malas Section -->
         <div class="section japa-malas">
             <h2>Add Japa Malas</h2>
             <select id="mantra-select">
@@ -44,20 +41,17 @@
             <button class="btn add" onclick="addJapaMalas()">Add Japa Malas</button>
         </div>
 
-        <!-- Japa Mala Statistics -->
         <div class="section stats">
             <h2>Statistics</h2>
             <h3>Total Japa Malas Today: <span id="today-malas">0</span></h3>
             <h3>Total Japa Malas for Life: <span id="lifetime-malas">0</span></h3>
         </div>
 
-        <!-- Mantra Logs and Stats -->
         <div class="section mantra-logs">
             <h2>Mantra-Wise Logs</h2>
             <div id="mantra-stats-container"></div>
         </div>
 
-        <!-- Daily Logs Section -->
         <div id="log-section" class="section daily-log hidden">
             <h2>Daily Log for Selected Date</h2>
             <table id="log-table">
