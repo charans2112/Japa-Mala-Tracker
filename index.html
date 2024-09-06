@@ -10,7 +10,7 @@
     <div class="header">
         <h1>Japa Mala Tracker</h1>
     </div>
-    
+
     <div class="container">
         <!-- Mantra Management Section -->
         <div class="mantra-management">
@@ -23,6 +23,7 @@
         <div class="calendar-section">
             <h3>Select Date</h3>
             <input type="date" id="japa-date">
+            <button class="btn show-log" onclick="showDailyLog()">Show Daily Log</button>
         </div>
 
         <!-- Japa Malas Section -->
@@ -48,7 +49,7 @@
         </div>
 
         <!-- Daily Logs Section -->
-        <div class="daily-log">
+        <div id="log-section" class="daily-log hidden">
             <h3>Daily Log for Selected Date</h3>
             <table id="log-table">
                 <thead>
